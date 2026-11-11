@@ -1,0 +1,194 @@
+
+/* Pleyad — pages légales (Ashford) */
+:root {
+  --ivory: #f2ede0;
+  --ivory-dim: rgba(242, 237, 224, 0.62);
+  --ivory-faint: rgba(242, 237, 224, 0.32);
+  --line: rgba(242, 237, 224, 0.16);
+  --card: rgba(242, 237, 224, 0.045);
+  --radius: 28px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  background: #050505;
+  color: var(--ivory);
+  font-family: "Figtree", ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Fond d'écran ---------- */
+.fond {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url("assets/fond.jpg") center / cover no-repeat;
+  opacity: 0.5;
+}
+.fond::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 42%, rgba(5,5,5,0.1), rgba(5,5,5,0.88) 78%);
+}
+
+/* ---------- Typo ---------- */
+.serif { font-family: "Instrument Serif", ui-serif, Georgia, serif; font-weight: 400; }
+
+/* ---------- Accueil ---------- */
+.accueil {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  gap: 0;
+}
+.logo {
+  width: 148px;
+  height: 148px;
+  border-radius: 36px;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px -24px rgba(0,0,0,0.9);
+  margin-bottom: 36px;
+}
+.accueil h1 {
+  font-size: clamp(3rem, 9vw, 4.6rem);
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+.accueil .marque {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ivory-dim);
+}
+.accueil .accroche {
+  margin-top: 22px;
+  max-width: 34rem;
+  color: var(--ivory-dim);
+  font-size: 1.02rem;
+}
+.liens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 44px;
+}
+.carte-lien {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 28px;
+  min-width: 300px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  color: var(--ivory);
+  text-decoration: none;
+  text-align: left;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background 0.25s, border-color 0.25s;
+}
+.carte-lien:hover {
+  transform: translateY(-3px);
+  background: rgba(242, 237, 224, 0.09);
+  border-color: rgba(242, 237, 224, 0.34);
+}
+.carte-lien:focus-visible { outline: 2px solid var(--ivory); outline-offset: 3px; }
+.carte-lien svg { flex: none; opacity: 0.85; }
+.carte-lien strong { display: block; font-size: 1.02rem; font-weight: 600; }
+.carte-lien small { color: var(--ivory-dim); font-size: 0.84rem; }
+.pied {
+  margin-top: 56px;
+  font-size: 0.8rem;
+  color: var(--ivory-faint);
+  letter-spacing: 0.06em;
+}
+.pied a { color: var(--ivory-dim); text-decoration: none; }
+.pied a:hover { color: var(--ivory); }
+
+/* ---------- Pages légales ---------- */
+.legal {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 56px 24px 96px;
+}
+.legal .haut {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.legal .haut img {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+}
+.retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ivory-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+}
+.retour:hover { color: var(--ivory); }
+.legal h1 { font-size: clamp(2.2rem, 6vw, 3rem); line-height: 1.1; margin-bottom: 8px; }
+.legal .meta {
+  color: var(--ivory-faint);
+  font-size: 0.84rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 40px;
+}
+.legal h2 {
+  font-size: 1.35rem;
+  margin: 40px 0 12px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.legal h2:first-of-type { border-top: none; padding-top: 0; }
+.legal p, .legal li { color: rgba(242, 237, 224, 0.82); font-size: 0.97rem; }
+.legal ul { padding-left: 1.3rem; margin: 10px 0; }
+.legal li { margin-bottom: 6px; }
+.legal strong { color: var(--ivory); }
+.legal .note {
+  margin-top: 48px;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  font-size: 0.85rem;
+  color: var(--ivory-dim);
+}
+
+/* ---------- Animations ---------- */
+@keyframes entree {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+.anim { animation: entree 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-2 { animation-delay: 0.08s; }
+.anim-3 { animation-delay: 0.16s; }
+.anim-4 { animation-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 560px) {
+  .carte-lien { min-width: 100%; }
+  .logo { width: 120px; height: 120px; }
+}
